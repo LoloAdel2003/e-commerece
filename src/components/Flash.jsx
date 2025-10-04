@@ -1,0 +1,148 @@
+import React from 'react';
+import Title from './Title'; 
+import Cards from './Cards'; 
+
+const FlashSalesHeader = () => {
+  const timeLeft = { Days: "03", Hours: "23", Minutes: "19", Seconds: "56" };
+  
+  const CountdownSegment = ({ label, value }) => (
+    <div className="flex flex-col items-start min-w-[60px] md:min-w-[80px]">
+      <span className="text-xs md:text-sm font-poppins text-gray-700 mb-1">{label}</span>
+      <span className="text-3xl md:text-5xl font-bold font-poppins text-black leading-none">{value}</span>
+    </div>
+  );
+
+  const ProductSliderControls = () => {
+    const ButtonStyle = "w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center cursor-pointer shadow-sm";
+    const IconStyle = "w-5 h-5 text-black";
+  
+    return (
+      <div className="flex gap-2">
+        <button className={ButtonStyle} aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" className={IconStyle} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+        </button>
+        <button className={ButtonStyle} aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" className={IconStyle} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+        </button>
+      </div>
+    );
+  };
+
+  const timerComponents = Object.keys(timeLeft).map((unit, index) => (
+    <React.Fragment key={unit}>
+      <CountdownSegment label={unit} value={timeLeft[unit]} />
+      {index < Object.keys(timeLeft).length - 1 && (
+        <span className="text-3xl md:text-5xl font-bold text-red-500 mx-2 md:mx-4 leading-none self-end pb-1">:</span>
+      )}
+    </React.Fragment>
+  ));
+
+  return (
+    <div className="flex flex-col md:flex-row md:items-end justify-between">
+      <div className="flex flex-col md:flex-row md:items-end md:gap-14 lg:gap-20 mb-4 md:mb-0">
+        <Title type="Today's" title="Flash Sales"  className="flex-shrink-0" />
+        <div className="flex items-start mt-4 md:mt-0 pt-2">
+          {timerComponents}
+        </div>
+      </div>
+      <div className="flex-shrink-0 self-start md:self-end mt-4 md:mt-0">
+        <ProductSliderControls />
+      </div>
+    </div>
+  );
+};
+
+// =========================================================
+
+const Flash = () => {
+  const cardsData = [
+    {
+      img: "/imges/g92-2-500x500 1.png", 
+      price: "-40%", 
+      title: "HAVIT HV-G92 Gamepad", 
+      NewPrice: "$120", 
+      OldPrice: "$160", 
+      num: "88", 
+      rating: 4.5
+    },
+    {
+      img: "/imges/ak-900-01-500x500 1.png", 
+      price: "-25%", 
+      title: "AK-900 Wired Keyboard", 
+      NewPrice: "$960", 
+      OldPrice: "$1160", 
+      num: "75", 
+      rating: 4.0
+    },
+    {
+      img: "/imges/g27cq4-500x500 1.png", 
+      price: "-30%", 
+      title: "IPS LCD Gaming Monitor", 
+      NewPrice: "$370", 
+      OldPrice: "$400", 
+      num: "99", 
+      rating: 5.0
+    },
+    {
+      img: "/imges/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png", 
+      title: "S-Series Comfort Chair", 
+      NewPrice: "$375", 
+      OldPrice: "$400", 
+      num: "99", 
+      rating: 4.5
+    },
+    {
+        img: "/imges/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png", 
+        price: "-25%", 
+        title: "S-Series Comfort Chair", 
+        NewPrice: "$375", 
+        OldPrice: "$400", 
+        num: "60", 
+        rating: 4.0
+    },
+  ];
+
+  return (
+    <>
+      <section className="w-full px-4 lg:px-[135px] pt-[50px] lg:pt-[140px] font-poppins overflow-auto scrollbar-hide">
+        
+        {/* 1. العنوان والتايمر والأزرار */}
+        <div className="mb-10">
+          <FlashSalesHeader />
+        </div>
+
+       
+        <div 
+          className="flex gap-7 pb-4 overflow-auto scrollbar-hide "
+        >
+          {cardsData.map((card, index) => (
+            <div key={index} className="flex-shrink-0">
+              <Cards 
+                img={card.img} 
+                price={card.price} 
+                title={card.title} 
+                NewPrice={card.NewPrice} 
+                OldPrice={card.OldPrice} 
+                num={card.num} 
+                rating={card.rating} 
+              />
+            </div>
+          ))}
+        </div>
+        
+        {/* 3. زر "View All Products" (للتوافق مع التصميمات الشائعة) */}
+        <div className="flex justify-center mt-12 mb-16">
+            <button className="bg-[#DB4444] text-white font-medium py-4 px-12 rounded-[4px] hover:bg-red-600 transition-colors">
+                View All Products
+            </button>
+        </div>
+
+        {/* خط فاصل أسفل القسم */}
+        <div className="w-full h-[1px] bg-gray-200"></div>
+
+      </section>
+    </>
+  );
+};
+
+export default Flash;
