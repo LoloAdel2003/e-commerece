@@ -1,8 +1,6 @@
 import React from 'react';
 
-// =========================================================
-// 1. مكون العداد الدائري
-// =========================================================
+
 const CircularCountdownSegment = ({ num, time }) => {
   return (
     <div className="w-[62px] h-[62px] rounded-full bg-white text-black flex flex-col justify-center items-center font-poppins shadow-md flex-shrink-0">
@@ -13,9 +11,7 @@ const CircularCountdownSegment = ({ num, time }) => {
   );
 };
 
-// =========================================================
-// 2. بيانات العداد
-// =========================================================
+
 const timerData = [
   { time: 'Hours', num: '23' },
   { time: 'Days', num: '05' },
@@ -23,9 +19,7 @@ const timerData = [
   { time: 'Seconds', num: '35' },
 ];
 
-// =========================================================
-// 3. مكون البانر الأساسي
-// =========================================================
+
 const MusicBanner = () => {
   return (
     <div className="px-10 mx-4 md:mx-8 lg:mx-[135px] mt-[140px] bg-black flex justify-center py-10 lg:py-[69px] text-white overflow-hidden">

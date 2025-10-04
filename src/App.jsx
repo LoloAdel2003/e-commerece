@@ -8,6 +8,8 @@ import BrowseCategories from './components/BrowseCategories.jsx';
 import BestSelling from './components/BestSelling.jsx';
 import ExploreProduct from './components/ExploreProduct.jsx'
 import Music from './components/music.jsx';
+import PromotionalGrid from './components/PromotionalGrid.jsx'
+import FeaturesSection from './components/FeaturesSection.jsx'
 const App = () => {
   return (
    <>
@@ -20,6 +22,8 @@ const App = () => {
    <BestSelling />
    <Music />
    <ExploreProduct />
+   <PromotionalGrid />
+   <FeaturesSection />
    <Footer />
 
    </>

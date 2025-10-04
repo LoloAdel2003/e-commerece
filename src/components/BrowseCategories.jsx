@@ -48,9 +48,7 @@ const categoriesData = [
   },
 ];
 
-// ----------------------------------------------------
-// المكون الذي يعرض الشريط
-// ----------------------------------------------------
+
 const BrowseCategories = () => {
   return (
     <div className="container mx-auto px-4 md:px-8 lg:px-16 pt-[70px] ">
