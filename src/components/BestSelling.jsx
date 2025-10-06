@@ -14,7 +14,7 @@ const BestSelling = () => {
       rating: 4.5
     },
     {
-      img: "/imges/ak-900-01-500x500 1.png", 
+      img: "/imges/672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat 1.png", 
       price: "-25%", 
       title: "AK-900 Wired Keyboard", 
       NewPrice: "$960", 
@@ -23,7 +23,7 @@ const BestSelling = () => {
       rating: 4.0
     },
     {
-      img: "/imges/g27cq4-500x500 1.png", 
+      img: "/imges/547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag 1.png", 
       price: "-30%", 
       title: "IPS LCD Gaming Monitor", 
       NewPrice: "$370", 
@@ -32,7 +32,7 @@ const BestSelling = () => {
       rating: 5.0
     },
     {
-      img: "/imges/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png", 
+      img: "/imges/gammaxx-l240-argb-1-500x500 1.png", 
       price: "-25%", 
       title: "S-Series Comfort Chair", 
       NewPrice: "$375", 
@@ -41,7 +41,7 @@ const BestSelling = () => {
       rating: 4.5
     },
     {
-        img: "/imges/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png", // رابط وهمي للكرسي الثاني
+        img: "/imges/sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png", // رابط وهمي للكرسي الثاني
         price: "-25%", 
         title: "S-Series Comfort Chair", 
         NewPrice: "$375", 

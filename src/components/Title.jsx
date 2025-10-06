@@ -8,7 +8,7 @@ const Title = ({type,title,slides,button}) => {
         <span className="w-[20px] h-[40px] rounded-[4px] bg-[#DB4444]"></span>
         <span className="font-semibold font-600 text-sm ">{type}</span>
       </div>
-      <div className="font-600 font-semibold text-[30px]  lg:text-[36px] mt-[18px] lg:mt-[24px]">{title}</div>
+      <div className="font-600 font-semibold text-[25px]  lg:text-[36px] mt-[18px] lg:mt-[24px]">{title}</div>
     </div>
 {slides && <ProductSliderControls /> }
 {button && <Button name="View All Products" />}
@@ -40,7 +40,6 @@ const CountdownSegment = ({ label, value }) => {
 
 // أزرار التنقل بين شرائح المنتج (السهمين)
 const ProductSliderControls = () => {
-  // دالة وهمية لعملية النقر
   const handlePrev = () => console.log('Previous button clicked');
   const handleNext = () => console.log('Next button clicked');
 

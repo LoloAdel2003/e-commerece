@@ -69,18 +69,18 @@ export default Hero;
     <div className="relative w-full h-full bg-black rounded-r-md">
       
       
-      <div className="flex justify-between items-center h-full p-8 md:p-14 lg:p-16">
+      <div className="flex justify-between items-center h-full p-[64px] md:p-14 lg:p-16">
         
         {/* النص الترويجي */}
-        <div className="text-white">
-          <div className="flex items-center mb-4">
+        <div className="text-white flex-1">
+          <div className="flex  items-center mb-4">
             <svg className="w-8 h-8 mr-3 fill-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.77 8.35c.16-.16.35-.3.51-.43 0-.01.01-.01.02-.02.32-.26.63-.56.92-.88-.23-.74-.75-1.52-1.39-2.2-.42-.44-.89-.85-1.42-1.22-.64-.44-1.3-.77-2.02-1.01-.7-.23-1.45-.35-2.22-.35-.78 0-1.53.12-2.22.35-.72.24-1.38.57-2.02 1.01-.53.37-1 .78-1.42 1.22-.64.68-1.16 1.46-1.39 2.2.29.32.6.62.92.88.13.11.27.2.4.29.17.13.36.27.52.42-.01 0-.01.01-.02.01-.55.51-1.04 1.1-1.43 1.77-.28.49-.49 1.02-.63 1.58.29.09.58.17.88.23.51.11 1.04.16 1.58.16.54 0 1.07-.05 1.58-.16.3-.06.59-.14.88-.23-.39-.67-.88-1.26-1.43-1.77-.16-.16-.35-.3-.51-.42-.14-.11-.28-.2-.41-.29-.32-.26-.63-.56-.92-.88.01 0 .01-.01.02-.01.16.15.35.29.51.42.02.01.03.02.04.03.32.26.63.56.92.88-.23.74-.75 1.52-1.39 2.2-.42.44-.89.85-1.42 1.22-.64.44-1.3.77-2.02 1.01-.7.23-1.45.35-2.22.35-.78 0-1.53-.12-2.22-.35-.72-.24-1.38-.57-2.02-1.01-.53-.37-1-.78-1.42-1.22-.64-.68-1.16-1.46-1.39 2.2.29.32.6.62.92.88.13.11.27.2.4.29.17.13.36.27.52.42-.01 0-.01.01-.02.01-.55.51-1.04 1.1-1.43 1.77-.28.49-.49 1.02-.63 1.58.29.09.58.17.88.23.51.11 1.04.16 1.58.16.54 0 1.07-.05 1.58-.16.3-.06.59-.14.88-.23-.39-.67-.88-1.26-1.43-1.77-.16-.16-.35-.3-.51-.42-.14-.11-.28-.2-.41-.29z" />
             </svg>
             <span className="text-sm md:text-base font-poppins">iPhone 14 Series</span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-[48px] font-semibold font-600 mb-4 lg:mb-6 leading-tight">
+          <h1 className="text-2xl  lg:text-[48px] font-semibold font-600 mb-4 lg:mb-6 leading-tight">
             Up to 10% <br /> off Voucher
           </h1>
           
@@ -95,11 +95,11 @@ export default Hero;
           </a>
         </div>
         
-       <div className="md:block lg:w-[496px] lg:h-[332px] relative top-[16px]  lg:left-[50px] opacity-100">
+       <div className="  lg:w-[496px] lg:h-[332px]  relative top-[16px]  lg:left-[50px] opacity-100">
   <img 
     src="/imges/phone.jpg" 
     alt="phone" 
-    className="w-full h-full object-cover"
+    className="w-full h-full object-contain"
   />
 </div>
 
