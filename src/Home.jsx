@@ -15,8 +15,8 @@ import FeaturesSection from './components/FeaturesSection.jsx'
 const Home = () => {
   return (
    <>
-   <Head />
-   <Header />
+   
+ 
    <Hero />
    <Flash />
    <BrowseCategories />
@@ -25,7 +25,7 @@ const Home = () => {
    <ExploreProduct />
    <PromotionalGrid />
    <FeaturesSection />
-   <Footer />
+ 
 
    </>
   )

@@ -114,5 +114,14 @@ export default Hero;
         <span className="w-3 h-3 bg-gray-600 rounded-full cursor-pointer"></span>
         <span className="w-3 h-3 bg-gray-600 rounded-full cursor-pointer"></span>
       </div>
+
+
+
+
+
+
+
+
+    
     </div>
   );

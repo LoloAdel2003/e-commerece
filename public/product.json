@@ -1,0 +1,275 @@
+[
+  {
+    "type": "best-selling",
+    "img": "/imges/g92-2-500x500 1.png",
+    "title": "HAVIT HV-G92 Gamepad",
+    "NewPrice": "$120",
+    "OldPrice": "$160",
+    "price": "-40%",
+    "num": "88",
+    "rating": 4.5,
+    "shortDescription": "High-performance gaming gamepad designed for precise control and comfort during long sessions.",
+    "inStock": 88,
+    "availableColors": ["Black", "Red", "Blue", "White"],
+    "rateNumber": 4.5,
+    "reviewNumber": 120,
+    "images": [
+      "/imges/g92-2-500x500 1.png",
+      "/imges/g92-2-500x500 1.png",
+      "/imges/g92-2-500x500 1.png",
+      "/imges/g92-2-500x500 1.png"
+    ]
+  },
+  {
+    "type": "best-selling",
+    "img": "/imges/672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat 1.png",
+    "title": "AK-900 Wired Keyboard",
+    "NewPrice": "$960",
+    "OldPrice": "$1160",
+    "price": "-25%",
+    "num": "75",
+    "rating": 4.0,
+    "shortDescription": "Ergonomic wired keyboard with customizable keys and smooth typing experience.",
+    "inStock": 75,
+    "availableColors": ["Black", "Gray", "White"],
+    "rateNumber": 4.0,
+    "reviewNumber": 98,
+    "images": [
+      "/imges/672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat 1.png",
+      "/imges/672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat 1.png",
+      "/imges/672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat 1.png",
+      "/imges/672462_ZAH9D_5626_002_100_0000_Light-The-North-Face-x-Gucci-coat 1.png"
+    ]
+  },
+  {
+    "type": "best-selling",
+    "img": "/imges/547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag 1.png",
+    "title": "IPS LCD Gaming Monitor",
+    "NewPrice": "$370",
+    "OldPrice": "$400",
+    "price": "-30%",
+    "num": "99",
+    "rating": 5.0,
+    "shortDescription": "Crystal-clear IPS display with high refresh rate for immersive gaming and multimedia experience.",
+    "inStock": 99,
+    "availableColors": ["Black", "Silver"],
+    "rateNumber": 5.0,
+    "reviewNumber": 150,
+    "images": [
+      "/imges/547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag 1.png",
+      "/imges/547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag 1.png",
+      "/imges/547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag 1.png",
+      "/imges/547953_9C2ST_8746_001_082_0000_Light-Gucci-Savoy-medium-duffle-bag 1.png"
+    ]
+  },
+  {
+    "type": "best-selling",
+    "img": "/imges/gammaxx-l240-argb-1-500x500 1.png",
+    "title": "S-Series Comfort Chair",
+    "NewPrice": "$375",
+    "OldPrice": "$400",
+    "price": "-25%",
+    "num": "99",
+    "rating": 4.5,
+    "shortDescription": "Comfortable gaming chair with ergonomic design and adjustable settings for long hours of sitting.",
+    "inStock": 99,
+    "availableColors": ["Black", "Blue", "Red"],
+    "rateNumber": 4.5,
+    "reviewNumber": 75,
+    "images": [
+      "/imges/gammaxx-l240-argb-1-500x500 1.png",
+      "/imges/gammaxx-l240-argb-1-500x500 1.png",
+      "/imges/gammaxx-l240-argb-1-500x500 1.png",
+      "/imges/gammaxx-l240-argb-1-500x500 1.png"
+    ]
+  },
+  {
+    "type": "best-selling",
+    "img": "/imges/sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png",
+    "title": "S-Series Comfort Chair",
+    "NewPrice": "$375",
+    "OldPrice": "$400",
+    "price": "-25%",
+    "num": "60",
+    "rating": 4.0,
+    "shortDescription": "Durable and stylish chair suitable for gaming and office use, with breathable material.",
+    "inStock": 60,
+    "availableColors": ["Black", "Gray"],
+    "rateNumber": 4.0,
+    "reviewNumber": 50,
+    "images": [
+      "/imges/sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png",
+      "/imges/sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png",
+      "/imges/sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png",
+      "/imges/sam-moghadam-khamseh-L_7MQsHl_aU-unsplash 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/71RdoeXxtrL 1.png",
+    "title": "HAVIT HV-G92 Gamepad",
+    "NewPrice": "$120",
+    "OldPrice": "$160",
+    "price": "-40%",
+    "num": "88",
+    "rating": 4.5,
+    "shortDescription": "High-performance gaming gamepad designed for precise control and comfort during long sessions.",
+    "inStock": 88,
+    "availableColors": ["Black", "Red", "Blue", "White"],
+    "rateNumber": 4.5,
+    "reviewNumber": 120,
+    "images": [
+      "/imges/71RdoeXxtrL 1.png",
+      "/imges/71RdoeXxtrL 1.png",
+      "/imges/71RdoeXxtrL 1.png",
+      "/imges/71RdoeXxtrL 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/eos-250d-03-500x500 1.png",
+    "title": "AK-900 Wired Keyboard",
+    "NewPrice": "$960",
+    "OldPrice": "$1160",
+    "price": "-25%",
+    "num": "75",
+    "rating": 4.0,
+    "shortDescription": "Ergonomic wired keyboard with customizable keys and smooth typing experience.",
+    "inStock": 75,
+    "availableColors": ["Black", "Gray", "White"],
+    "rateNumber": 4.0,
+    "reviewNumber": 98,
+    "images": [
+      "/imges/eos-250d-03-500x500 1.png",
+      "/imges/eos-250d-03-500x500 1.png",
+      "/imges/eos-250d-03-500x500 1.png",
+      "/imges/eos-250d-03-500x500 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/ideapad-gaming-3i-01-500x500 1.png",
+    "title": "IPS LCD Gaming Monitor",
+    "NewPrice": "$370",
+    "OldPrice": "$400",
+    "price": "-30%",
+    "num": "99",
+    "rating": 5.0,
+    "shortDescription": "Crystal-clear IPS display with high refresh rate for immersive gaming and multimedia experience.",
+    "inStock": 99,
+    "availableColors": ["Black", "Silver"],
+    "rateNumber": 5.0,
+    "reviewNumber": 150,
+    "images": [
+      "/imges/ideapad-gaming-3i-01-500x500 1.png",
+      "/imges/ideapad-gaming-3i-01-500x500 1.png",
+      "/imges/ideapad-gaming-3i-01-500x500 1.png",
+      "/imges/ideapad-gaming-3i-01-500x500 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/curology-j7pKVQrTUsM-unsplash 1.png",
+    "title": "S-Series Comfort Chair",
+    "NewPrice": "$375",
+    "OldPrice": "$400",
+    "price": "-25%",
+    "num": "99",
+    "rating": 4.5,
+    "shortDescription": "Comfortable gaming chair with ergonomic design and adjustable settings for long hours of sitting.",
+    "inStock": 99,
+    "availableColors": ["Black", "Blue", "Red"],
+    "rateNumber": 4.5,
+    "reviewNumber": 75,
+    "images": [
+      "/imges/curology-j7pKVQrTUsM-unsplash 1.png",
+      "/imges/curology-j7pKVQrTUsM-unsplash 1.png",
+      "/imges/curology-j7pKVQrTUsM-unsplash 1.png",
+      "/imges/curology-j7pKVQrTUsM-unsplash 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/New-Mercedes-Benz-Gtr-Licensed-Ride-on-Car-Kids-Electric-Toy-Car 1.png",
+    "title": "S-Series Comfort Chair",
+    "NewPrice": "$375",
+    "OldPrice": "$400",
+    "price": "-25%",
+    "num": "60",
+    "rating": 4.0,
+    "shortDescription": "Durable and stylish chair suitable for gaming and office use, with breathable material.",
+    "inStock": 60,
+    "availableColors": ["Black", "Gray"],
+    "rateNumber": 4.0,
+    "reviewNumber": 50,
+    "images": [
+      "/imges/New-Mercedes-Benz-Gtr-Licensed-Ride-on-Car-Kids-Electric-Toy-Car 1.png",
+      "/imges/New-Mercedes-Benz-Gtr-Licensed-Ride-on-Car-Kids-Electric-Toy-Car 1.png",
+      "/imges/New-Mercedes-Benz-Gtr-Licensed-Ride-on-Car-Kids-Electric-Toy-Car 1.png",
+      "/imges/New-Mercedes-Benz-Gtr-Licensed-Ride-on-Car-Kids-Electric-Toy-Car 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/Copa_Sense 1.png",
+    "title": "HAVIT HV-G92 Gamepad",
+    "NewPrice": "$120",
+    "OldPrice": "$160",
+    "price": "-40%",
+    "num": "88",
+    "rating": 4.5,
+    "shortDescription": "High-performance gaming gamepad designed for precise control and comfort during long sessions.",
+    "inStock": 88,
+    "availableColors": ["Black", "Red", "Blue", "White"],
+    "rateNumber": 4.5,
+    "reviewNumber": 120,
+    "images": [
+      "/imges/Copa_Sense 1.png",
+      "/imges/Copa_Sense 1.png",
+      "/imges/Copa_Sense 1.png",
+      "/imges/Copa_Sense 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/GP11_PRD3 1.png",
+    "title": "AK-900 Wired Keyboard",
+    "NewPrice": "$960",
+    "OldPrice": "$1160",
+    "price": "-25%",
+    "num": "75",
+    "rating": 4.0,
+    "shortDescription": "Ergonomic wired keyboard with customizable keys and smooth typing experience.",
+    "inStock": 75,
+    "availableColors": ["Black", "Gray", "White"],
+    "rateNumber": 4.0,
+    "reviewNumber": 98,
+    "images": [
+      "/imges/GP11_PRD3 1.png",
+      "/imges/GP11_PRD3 1.png",
+      "/imges/GP11_PRD3 1.png",
+      "/imges/GP11_PRD3 1.png"
+    ]
+  },
+  {
+    "type": "flash-sales",
+    "img": "/imges/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png",
+    "title": "IPS LCD Gaming Monitor",
+    "NewPrice": "$370",
+    "OldPrice": "$400",
+    "price": "-30%",
+    "num": "99",
+    "rating": 5.0,
+    "shortDescription": "Crystal-clear IPS display with high refresh rate for immersive gaming and multimedia experience.",
+    "inStock": 99,
+    "availableColors": ["Black", "Silver"],
+    "rateNumber": 5.0,
+    "reviewNumber": 150,
+    "images": [
+      "/imges/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png",
+      "/imges/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png",
+      "/imges/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png",
+      "/imges/698717_Z8A1X_3475_001_100_0000_Light-Reversible-quilted-satin-jacket 1.png"
+    ]
+  }
+]
