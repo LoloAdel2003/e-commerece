@@ -3,7 +3,7 @@ import { AiOutlineDown } from "react-icons/ai";
 
 const Head = () => {
   return (
-    <div className="h-[48px] bg-black flex items-center justify-center relative px-4 lg:px-[135px]">
+    <div className=" h-[48px] bg-black flex items-center justify-center relative px-4 lg:px-[135px]">
       
       {/* النص الطويل للشاشات الكبيرة */}
       <div className="hidden lg:block text-white text-[14px] font-normal text-center">

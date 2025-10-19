@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginComp from '../components/LoginComp'
 import { Link } from "react-router-dom"; // ✅ تم إضافته
+import { FaGoogle } from "react-icons/fa6";
 
   
 
@@ -24,7 +25,8 @@ const Login = () => {
         Create Account
         </Link>
          <Link to="/" className="w-full justify-center mt-[30px] flex items-center h-[56px] rounded-[4px] bg-white border border-gray-500 ">
-       Sign up with Google
+      <FaGoogle className="mr-2"/>
+ Sign up with Google
         </Link>
          <div  className="w-full justify-center mt-[30px] flex items-center h-[56px] rounded-[4px]  text-black">
         Already have account?

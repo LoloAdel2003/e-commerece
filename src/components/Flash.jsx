@@ -1,7 +1,7 @@
-
-import React from 'react';
-import Title from './Title'; 
-import Cards from './Cards'; 
+import React, { useContext } from 'react';
+import Title from './Title';
+import Cards from './Cards';
+import  ProductContext  from '../Context/ProductContext' ; // استيراد الـ context
 
 // =========================================================
 // مكوّن الهيدر مع العداد المتجاوب
@@ -49,13 +49,13 @@ const FlashSalesHeader = () => {
 
   return (
     <div className="flex flex-col md:flex-row md:items-end justify-between">
-      <div className="flex  md:flex-row md:items-end md:gap-10 lg:gap-20 mb-4 md:mb-0">
+      <div className="flex md:flex-row md:items-end md:gap-10 lg:gap-20 mb-4 md:mb-0">
         <Title type="Today's" title="Flash Sales" className="flex-shrink-0" />
         <div className="flex items-center mt-3 md:mt-0 pt-1 sm:pt-2">
           {timerComponents}
         </div>
       </div>
-      <div className="flex-shrink-0 s md:self-end mt-3 md:mt-0">
+      <div className="flex-shrink-0 md:self-end mt-3 md:mt-0">
         <ProductSliderControls />
       </div>
     </div>
@@ -65,52 +65,10 @@ const FlashSalesHeader = () => {
 // =========================================================
 // مكوّن الفلاش الكامل
 const Flash = () => {
-  const cardsData = [
-    {
-      img: "/imges/g92-2-500x500 1.png",
-      price: "-40%",
-      title: "HAVIT HV-G92 Gamepad",
-      NewPrice: "$120",
-      OldPrice: "$160",
-      num: "88",
-      rating: 4.5
-    },
-    {
-      img: "/imges/ak-900-01-500x500 1.png",
-      price: "-25%",
-      title: "AK-900 Wired Keyboard",
-      NewPrice: "$960",
-      OldPrice: "$1160",
-      num: "75",
-      rating: 4.0
-    },
-    {
-      img: "/imges/g27cq4-500x500 1.png",
-      price: "-30%",
-      title: "IPS LCD Gaming Monitor",
-      NewPrice: "$370",
-      OldPrice: "$400",
-      num: "99",
-      rating: 5.0
-    },
-    {
-      img: "/imges/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png",
-      title: "S-Series Comfort Chair",
-      NewPrice: "$375",
-      OldPrice: "$400",
-      num: "99",
-      rating: 4.5
-    },
-    {
-      img: "/imges/sam-moghadam-khamseh-kvmdsTrGOBM-unsplash 1.png",
-      price: "-25%",
-      title: "S-Series Comfort Chair",
-      NewPrice: "$375",
-      OldPrice: "$400",
-      num: "60",
-      rating: 4.0
-    },
-  ];
+  const { products } = useContext(ProductContext);
+
+  // فلترة المنتجات لعرض فقط نوع flash-sales
+  const flashProducts = products.filter(product => product.type === 'flash-sales');
 
   return (
     <>
@@ -122,16 +80,10 @@ const Flash = () => {
 
         {/* الكروت */}
         <div className="flex gap-4 sm:gap-6 lg:gap-7 pb-4 overflow-auto scrollbar-hide">
-          {cardsData.map((card, index) => (
+          {flashProducts.map((card, index) => (
             <div key={index} className="flex-shrink-0">
               <Cards
-                img={card.img}
-                price={card.price}
-                title={card.title}
-                NewPrice={card.NewPrice}
-                OldPrice={card.OldPrice}
-                num={card.num}
-                rating={card.rating}
+                product={card}
               />
             </div>
           ))}
@@ -152,4 +104,3 @@ const Flash = () => {
 };
 
 export default Flash;
-

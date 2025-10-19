@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { AiOutlineHeart, AiOutlineShopping, AiOutlineUser } from "react-icons/ai";
+import React, { useState, useContext } from 'react';
+import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { HiOutlineMenu } from "react-icons/hi";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { NavLink } from "react-router-dom"; // ✅ بدل Link بـ NavLink
+import { NavLink, Link } from "react-router-dom";
+import ProductContext from '../Context/ProductContext';
 
-const Header = ({ isExist = true, isSign = false }) => {
+const Header = ({ isExist = true, isSign = true }) => {
   const navLinks = ["Home", "Contact", "About"];
   const [showSearch, setShowSearch] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+
+  const { cart, wishlist } = useContext(ProductContext);
 
   return (
     <header className="bg-white shadow">
@@ -16,7 +19,7 @@ const Header = ({ isExist = true, isSign = false }) => {
         {/* الاسم */}
         <span className="font-bold text-[24px] text-black">Exclusive</span>
 
-        {/* Navbar - يظهر فقط على الشاشات الكبيرة */}
+        {/* Navbar */}
         <nav className="hidden lg:flex justify-center items-center gap-[48px]">
           {navLinks.map((link, index) => {
             const to = link === "Home" ? "/" : `/${link.toLowerCase()}`;
@@ -24,7 +27,7 @@ const Header = ({ isExist = true, isSign = false }) => {
               <NavLink
                 key={index}
                 to={to}
-                end={link === "Home"} // ✅ حتى يفعّل الـ active فقط في المسار /
+                end={link === "Home"}
                 className={({ isActive }) =>
                   `font-poppins font-normal text-[16px] leading-[24px] text-center ${
                     isActive
@@ -54,9 +57,9 @@ const Header = ({ isExist = true, isSign = false }) => {
           )}
         </nav>
 
-        {/* أيقونات البحث والقلب والسلة + menu icon للشاشات الصغيرة */}
+        {/* أيقونات */}
         <div className="flex items-center gap-4">
-          {/* أيقونة البحث */}
+          {/* 🔍 أيقونة البحث (للموبايل فقط) */}
           <button
             className="lg:hidden p-2"
             onClick={() => setShowSearch(!showSearch)}
@@ -64,7 +67,7 @@ const Header = ({ isExist = true, isSign = false }) => {
             <BiSearch className="w-6 h-6 text-black" />
           </button>
 
-          {/* البحث input على الشاشات الكبيرة */}
+          {/* البحث للشاشات الكبيرة */}
           <div className="hidden lg:block relative">
             <input
               type="text"
@@ -74,20 +77,39 @@ const Header = ({ isExist = true, isSign = false }) => {
             <BiSearch className="absolute right-[16px] top-1/2 transform -translate-y-1/2 text-gray-600 w-4 h-4" />
           </div>
 
-          {/* أيقونات القلب والسلة على الشاشات الكبيرة فقط */}
+         
           {isExist && (
-            <div className="hidden lg:flex items-center gap-4">
-              <AiOutlineHeart className="w-6 h-6 text-black cursor-pointer" />
-              <MdOutlineShoppingCart className="w-6 h-6 text-black cursor-pointer" />
+            <div className="hidden lg:flex items-center gap-4 relative">
+              
+              <Link to="/wishlist" className="relative cursor-pointer">
+                <AiOutlineHeart className="w-6 h-6 text-black" />
+                {wishlist.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
+                    {wishlist.length}
+                  </span>
+                )}
+              </Link>
+
+              {/*  السلة */}
+              <Link to="/cart" className="relative cursor-pointer">
+                <MdOutlineShoppingCart className="w-6 h-6 text-black" />
+                {cart.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
+                    {cart.reduce((sum, item) => sum + (item.quantity || 1), 0)}
+                  </span>
+                )}
+              </Link>
+
+              {/*  المستخدم */}
               {isSign && (
                 <div className="w-[32px] h-[32px] flex items-center justify-center rounded-full bg-[#DB4444] border border-gray-300 cursor-pointer hover:opacity-90 transition">
-                  <AiOutlineUser className="text-white w-5 h-5" />
+                 <Link to='/profile' > <AiOutlineUser className="text-white w-5 h-5" /> </Link>
                 </div>
               )}
             </div>
           )}
 
-          {/* أيقونة menu للشاشات الصغيرة والمتوسطة */}
+          {/* أيقونة menu للموبايل */}
           <button
             className="lg:hidden p-2"
             onClick={() => setShowMenu(!showMenu)}
@@ -97,7 +119,7 @@ const Header = ({ isExist = true, isSign = false }) => {
         </div>
       </div>
 
-      {/* البحث يظهر على الشاشات الصغيرة عند الضغط */}
+      {/* البحث للموبايل */}
       {showSearch && (
         <div className="px-6 lg:hidden pb-4">
           <div className="relative">
@@ -111,7 +133,7 @@ const Header = ({ isExist = true, isSign = false }) => {
         </div>
       )}
 
-      {/* القائمة تظهر على الشاشات الصغيرة والمتوسطة عند الضغط */}
+      {/* القائمة الجانبية للموبايل */}
       {showMenu && (
         <div className="px-6 lg:hidden pb-4 flex flex-col gap-4 border-t border-gray-200">
           {navLinks.map((link, index) => {
@@ -151,11 +173,15 @@ const Header = ({ isExist = true, isSign = false }) => {
 
           {isExist && (
             <div className="flex items-center gap-4 pt-2">
-              <AiOutlineHeart className="w-6 h-6 text-black cursor-pointer" />
-              <AiOutlineShopping className="w-6 h-6 text-black cursor-pointer" />
+              <Link to="/wishlist">
+                <AiOutlineHeart className="w-6 h-6 text-black cursor-pointer" />
+              </Link>
+              <Link to="/cart">
+                <MdOutlineShoppingCart className="w-6 h-6 text-black cursor-pointer" />
+              </Link>
               {isSign && (
                 <div className="w-[32px] h-[32px] flex items-center justify-center rounded-full bg-[#DB4444] border border-gray-300 cursor-pointer hover:opacity-90 transition">
-                  <AiOutlineUser className="text-white w-5 h-5" />
+                <Link to="/profile" >  <AiOutlineUser className="text-white w-5 h-5" /></Link>
                 </div>
               )}
             </div>
