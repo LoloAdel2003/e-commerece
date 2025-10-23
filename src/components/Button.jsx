@@ -1,5 +1,5 @@
 import React from 'react';
-
+// button 
 const Button = ({ name, event = () => {}, padding = '0' }) => {
   return (
     <div>
