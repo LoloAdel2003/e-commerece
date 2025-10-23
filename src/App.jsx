@@ -13,6 +13,8 @@ import Contact from './pages/Contact'
 import About from './pages/about'
 import Profile from './pages/Profile'
 import ErrorPage404 from './pages/ErrorPage404'
+import ProductDetails from './pages/ProductDetails'
+
 const Layout = () => {
   return (
     <>
@@ -52,13 +54,14 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
+          
             <Route index element={<Home />} />
             <Route path="cart" element={<Cart />} />
             <Route path="contact" element={<Contact />} />
             <Route path="about" element={<About />} />
             <Route path="*" element={<ErrorPage404 />} /> 
             <Route path="profile" element={<Profile />} />
-                        <Route path="wishlist" element={<Wishlist />} />
+ <Route path="/product/:id" element={<ProductDetails />} />                        <Route path="wishlist" element={<Wishlist />} />
 
           </Route>
 

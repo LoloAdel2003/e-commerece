@@ -47,7 +47,6 @@ const Wishlist = () => {
         </div>
       )}
 
-      {/* // just for you  */}
       <div>
         <div className="flex justify-between items-center">
           <Title type="Just For You" />

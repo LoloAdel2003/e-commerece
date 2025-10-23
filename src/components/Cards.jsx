@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProductContext from '../Context/ProductContext';
-import { AiOutlineHeart, AiFillHeart, AiOutlineEye, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineEye } from "react-icons/ai";
 import { HiArchiveBoxXMark } from "react-icons/hi2";
 
 // ========================
@@ -33,6 +34,7 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
   const [popupMessage, setPopupMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
+  const navigate = useNavigate();
   const { addToCart, addToWishlist, removeFromWishlist, setSelected, wishlist } = useContext(ProductContext);
   const { img, price, title, NewPrice, OldPrice, num, rating, id } = product || {};
 
@@ -43,6 +45,12 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
     setPopupMessage(message);
     setShowPopup(true);
     setTimeout(() => setShowPopup(false), 1500);
+  };
+
+  // دالة للذهاب لصفحة تفاصيل المنتج
+  const goToProduct = (product) => {
+    setSelected(product);
+    navigate(`/product/${product.id}`);
   };
 
   return (
@@ -65,7 +73,7 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
           </div>
         )}
 
-        {/* إذا الكرت في wishlist فقط */}
+        {/* Wishlist / Icons */}
         {isWish ? (
           <div
             onClick={() => {
@@ -77,9 +85,7 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
             <HiArchiveBoxXMark className="text-gray-800 w-5 h-5" />
           </div>
         ) : (
-          // أيقونات القلب والعين للحالة العادية
           <div className="absolute top-[12px] right-[12px] flex flex-col gap-[8px]">
-            {/* ❤️ القلب */}
             {!inWish && (
               <div
                 onClick={() => {
@@ -103,7 +109,7 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
 
             {/* 👁️ العين */}
             <div
-              onClick={() => setSelected(product)}
+              onClick={() => goToProduct(product)}
               className="w-[34px] h-[34px] rounded-full bg-white flex justify-center items-center cursor-pointer shadow-sm hover:bg-gray-100 transition-colors"
             >
               <AiOutlineEye className="text-gray-800 w-5 h-5" />
@@ -129,16 +135,11 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
       <div className="pt-[16px]">
         <span className="text-base font-medium font-poppins leading-normal">{title}</span>
         <div className="py-[8px] flex items-center">
-          <span className="text-[16px] font-medium font-poppins text-[#DB4444] pr-[12px]">
-            {NewPrice}
-          </span>
+          <span className="text-[16px] font-medium font-poppins text-[#DB4444] pr-[12px]">{NewPrice}</span>
           {OldPrice && (
-            <span className="text-[16px] font-medium font-poppins text-black opacity-50 line-through">
-              {OldPrice}
-            </span>
+            <span className="text-[16px] font-medium font-poppins text-black opacity-50 line-through">{OldPrice}</span>
           )}
         </div>
-        {/* إزالة النجوم إذا في wishlist */}
         {!isWish && (
           <div className="flex items-center">
             <RatingStars rating={rating} />
