@@ -1,17 +1,7 @@
 // import React from 'react';
 import PageSeq from '../components/PageSeq';
 import Button from '../components/Button'
-// const Contact = () => {
-//   return (
-//     <div className="w-full px-3 sm:px-4 lg:px-[135px] pt-[40px] lg:pt-[80px] font-poppins">
-//       {/* Breadcrumb */}
-//       <PageSeq />
 
-//       <h1 className="text-2xl font-semibold mt-4">Contact Us</h1>
-//       <p className="mt-2 text-gray-600">This is the contact page content.</p>
-//     </div>
-//   );
-// };
 
 // export default Contact;
 import React from 'react';
