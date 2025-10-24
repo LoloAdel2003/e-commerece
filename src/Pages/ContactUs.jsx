@@ -1,11 +1,8 @@
-// import React from 'react';
 import PageSeq from '../components/PageSeq';
 import Button from '../components/Button'
 
 
-// export default Contact;
 import React from 'react';
-// تم تعديل الاستيراد لضمان التوافق وتجنب أخطاء التجميع
 import { BiPhoneCall } from "react-icons/bi";
 import { HiOutlineMailOpen } from "react-icons/hi";
 
@@ -15,7 +12,6 @@ const ContactUs = () => {
       {/* مسار التنقل (Breadcrumb) */}
       <PageSeq />
 
-      {/* المحتوى الرئيسي: معلومات الاتصال + نموذج الإرسال */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 my-[80px]">
 
         <aside className="w-full lg:w-96 flex-shrink-0 bg-white shadow-sm p-6 rounded-md border border-gray-100">

@@ -57,7 +57,6 @@ const navigate = useNavigate();
 
           {/* ====== كوبون و الإجمالي ====== */}
           <div className="flex flex-col lg:flex-row justify-between items-start mt-12 gap-8">
-            {/* ✅ قسم الكوبون */}
             <div className="flex w-full lg:w-[45%] items-center gap-4">
               <input
                 type="text"
@@ -67,7 +66,6 @@ const navigate = useNavigate();
               <Button name="Apply Coupon" />
             </div>
 
-            {/* ✅ قسم الإجمالي */}
             <div className="border border-gray-700 rounded-[4px] p-5 w-full sm:w-[400px]">
               <h3 className="text-lg font-medium mb-4">Cart Total</h3>
               <div className="flex justify-between border-b border-b-gray-300 py-2">

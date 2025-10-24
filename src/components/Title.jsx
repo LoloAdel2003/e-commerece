@@ -21,15 +21,12 @@ export default Title
 
 
 
-// يعرض جزء واحد من التوقيت (مثلاً: 03 أيام)
 const CountdownSegment = ({ label, value }) => {
   return (
     <div className="flex flex-col items-start min-w-[60px] md:min-w-[80px]">
-      {/* التسمية (Days, Hours, ...) */}
       <span className="text-xs md:text-sm font-poppins text-gray-700 mb-1">
         {label}
       </span>
-      {/* قيمة العد التنازلي */}
       <span className="text-3xl md:text-5xl font-bold font-poppins text-black leading-none">
         {value}
       </span>

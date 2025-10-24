@@ -34,7 +34,7 @@ const ProductProvider = ({ children }) => {
     });
   };
 
-  // ✅ Remove item from cart completely
+  //  Remove item from cart completely
   const removeFromCart = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
