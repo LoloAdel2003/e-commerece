@@ -1,6 +1,6 @@
 // import React from 'react';
 import PageSeq from '../components/PageSeq';
-import Button from '../components/button'
+import Button from '../components/Button'
 // const Contact = () => {
 //   return (
 //     <div className="w-full px-3 sm:px-4 lg:px-[135px] pt-[40px] lg:pt-[80px] font-poppins">
