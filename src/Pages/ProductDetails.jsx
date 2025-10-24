@@ -2,12 +2,15 @@ import React, { useContext, useState } from "react";
 import { FaStar, FaPlus, FaMinus, FaHeart, FaTruck, FaRedo } from "react-icons/fa";
 import ProductContext from "../Context/ProductContext";
 import PageSeq from '../components/PageSeq';
-
+import Title from '../components/Title'
+import Cards from '../components/Cards'
 const ProductDetails = () => {
-  const { selected, addToCart, addToWishlist } = useContext(ProductContext);
+
+  const { selected, addToCart,products, addToWishlist } = useContext(ProductContext);
   const [quantity, setQuantity] = useState(1);
   const [selectedColour, setSelectedColour] = useState(selected?.availableColors?.[0] || "");
   const [activeImage, setActiveImage] = useState(0);
+    const someProduct = products ? products.slice(0, 4) : [];
 
   if (!selected) {
     return (
@@ -176,7 +179,19 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-    </div>
+<div className="my-[80px] md:my-[140px]">
+   <Title type="Related Items" />
+  
+  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-[40px] lg:py-[60px] lg:pb-[140px]">
+          {someProduct.map((card, index) => (
+            <Cards inWish={true} key={index} product={card} />
+          ))}
+        </div>
+       
+
+        </div>
+  </div>
+    
   );
 };
 

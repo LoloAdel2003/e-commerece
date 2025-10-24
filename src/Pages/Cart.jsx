@@ -4,9 +4,11 @@ import PageSeq from "../components/PageSeq";
 import Button from "../components/Button";
 import ButtonAlt from "../components/ButtonAlt";
 import CartItem from "../components/CartItem";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cart } = useContext(ProductContext);
+const navigate = useNavigate();
 
   // حساب الإجمالي
   const subtotal = cart.reduce((acc, item) => {
@@ -14,7 +16,9 @@ const Cart = () => {
     const quantity = item.quantity || 0;
     return acc + price * quantity;
   }, 0);
-
+ const goToCheck =()=>{
+  navigate('/cart/checkout')
+ }
   return (
     <div className="w-full px-3 sm:px-6 lg:px-[135px] py-[40px] font-poppins">
       <PageSeq />
@@ -79,7 +83,8 @@ const Cart = () => {
                 <span>${subtotal.toFixed(2)}</span>
               </div>
               <div className="mt-5 flex justify-center">
-                <Button name="Proceed to Checkout" />
+
+                <Button event={goToCheck} name="Proceed to Checkout"  />
               </div>
             </div>
           </div>

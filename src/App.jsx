@@ -14,6 +14,7 @@ import About from './pages/about'
 import Profile from './pages/Profile'
 import ErrorPage404 from './pages/ErrorPage404'
 import ProductDetails from './pages/ProductDetails'
+import Checkout from './Pages/Checkout.jsx';
 
 const Layout = () => {
   return (
@@ -57,6 +58,7 @@ const App = () => {
           
             <Route index element={<Home />} />
             <Route path="cart" element={<Cart />} />
+            <Route path="cart/checkout" element={<Checkout />} />
             <Route path="contact" element={<Contact />} />
             <Route path="about" element={<About />} />
             <Route path="*" element={<ErrorPage404 />} /> 
