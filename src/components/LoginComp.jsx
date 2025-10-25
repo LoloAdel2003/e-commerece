@@ -11,9 +11,9 @@ const InputComp = ({ placeholder, name }) => {
 }
 const LoginComp = ({ children, name, subName, inputs }) => {
   return (
-    <div className="flex justify-between items-center w-[1305px] ">
-      <div className="w-[805px] h-[781px] rounded-[4px] bg-[#CBE4E8] flex justify-center items-center">
-        <img src="/imges/mobile.png" alt="mobile" className="max-h-[90%]" />
+    <div className="flex gap-20 items-center flex-col lg:flex-row w-[1305px] ">
+      <div className="w-full lg:w-[650px] h-auto rounded-[4px] bg-[#CBE4E8] flex justify-center items-center">
+        <img src="/imges/mobile.png" alt="mobile" className="" />
       </div>
 
       <div className="w-[371px]  flex flex-col gap-[24px]">

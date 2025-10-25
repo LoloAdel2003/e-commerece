@@ -26,10 +26,9 @@ const ProductDetails = () => {
 
   return (
      <div className="w-full px-3 sm:px-4 lg:px-[135px] pt-[40px] lg:pt-[80px] font-poppins ">
-      {/* مسار التنقل (Breadcrumb) */}
+      {/* (Breadcrumb) */}
       <PageSeq />
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Images Section */}
         <div className="flex flex-col sm:flex-row lg:flex-row gap-4 lg:w-2/3">
           {/* Thumbnails */}
           <div className="flex flex-row sm:flex-col gap-3 overflow-x-auto sm:overflow-x-hidden p-2">
@@ -51,11 +50,11 @@ const ProductDetails = () => {
           </div>
 
           {/* Main Image */}
-          <div className="flex-grow bg-gray-100 flex items-center justify-center p-8 rounded-lg min-h-[400px]">
+          <div className="flex-grow bg-gray-100 flex items-center justify-center p-8 rounded-lg  h-[300px] lg:min-h-[400px]">
             <img
               src={selected.images[activeImage]}
               alt={selected.title}
-              className="w-full max-w-md h-auto object-cover rounded-lg"
+              className="w-full lg:max-w-md h-[300px] object-cover rounded-lg"
             />
           </div>
         </div>

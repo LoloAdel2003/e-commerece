@@ -41,7 +41,7 @@ const Header = ({ isExist = true, isSign = true }) => {
             );
           })}
 
-          {!isSign && (
+          {isSign && (
             <NavLink
               to="/register"
               className={({ isActive }) =>
@@ -156,7 +156,7 @@ const Header = ({ isExist = true, isSign = true }) => {
             );
           })}
 
-          {!isSign && (
+          {isSign && (
             <NavLink
               to="/register"
               className={({ isActive }) =>

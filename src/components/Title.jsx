@@ -27,7 +27,7 @@ const CountdownSegment = ({ label, value }) => {
       <span className="text-xs md:text-sm font-poppins text-gray-700 mb-1">
         {label}
       </span>
-      <span className="text-3xl md:text-5xl font-bold font-poppins text-black leading-none">
+      <span className="text-xl md:text-3xl font-bold font-poppins text-black leading-none">
         {value}
       </span>
     </div>
