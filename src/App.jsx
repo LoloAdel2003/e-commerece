@@ -9,7 +9,7 @@ import Register from './Pages/Register.jsx';
 import ProductProvider from './Context/ProductProvider.jsx';
 import Cart from './Pages/Cart.jsx';
 import Wishlist from './Pages/Wishlist.jsx';
-import ContactUs from './pages/ContactUs.jsx'
+// import ContactUs from './pages/ContactUs.jsx'
 import About from './pages/about'
 import Profile from './pages/Profile'
 import ErrorPage404 from './pages/ErrorPage404'
@@ -59,7 +59,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="cart" element={<Cart />} />
             <Route path="cart/checkout" element={<Checkout />} />
-            <Route path="contact" element={<ContactUs />} />
+            {/* <Route path="contact" element={<ContactUs />} /> */}
             <Route path="about" element={<About />} />
             <Route path="*" element={<ErrorPage404 />} /> 
             <Route path="profile" element={<Profile />} />
