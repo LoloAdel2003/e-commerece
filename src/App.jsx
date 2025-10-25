@@ -9,11 +9,11 @@ import Register from './Pages/Register.jsx';
 import ProductProvider from './Context/ProductProvider.jsx';
 import Cart from './Pages/Cart.jsx';
 import Wishlist from './Pages/Wishlist.jsx';
-// import ContactUs from './pages/ContactUs.jsx'
-// import About from './pages/About'
-import Profile from './pages/Profile'
-import ErrorPage404 from './pages/ErrorPage404'
-import ProductDetails from './pages/ProductDetails'
+import ContactUs from './Pages/ContactUs.jsx'
+import About from './Pages/About'
+import Profile from './Pages/Profile.jsx'
+import ErrorPage404 from './Pages/ErrorPage404.jsx'
+import ProductDetails from './Pages/ProductDetails.jsx'
 import Checkout from './Pages/Checkout.jsx';
 
 const Layout = () => {
@@ -59,8 +59,8 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path="cart" element={<Cart />} />
             <Route path="cart/checkout" element={<Checkout />} />
-            {/* <Route path="contact" element={<ContactUs />} /> */}
-            {/* <Route path="about" element={<About />} /> */}
+            <Route path="contact" element={<ContactUs />} />
+            <Route path="about" element={<About />} />
             <Route path="*" element={<ErrorPage404 />} /> 
             <Route path="profile" element={<Profile />} />
  <Route path="/product/:id" element={<ProductDetails />} />                        <Route path="wishlist" element={<Wishlist />} />
