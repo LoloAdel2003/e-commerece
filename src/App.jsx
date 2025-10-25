@@ -10,7 +10,7 @@ import ProductProvider from './Context/ProductProvider.jsx';
 import Cart from './Pages/Cart.jsx';
 import Wishlist from './Pages/Wishlist.jsx';
 // import ContactUs from './pages/ContactUs.jsx'
-import About from './pages/About'
+// import About from './pages/About'
 import Profile from './pages/Profile'
 import ErrorPage404 from './pages/ErrorPage404'
 import ProductDetails from './pages/ProductDetails'
@@ -60,7 +60,7 @@ const App = () => {
             <Route path="cart" element={<Cart />} />
             <Route path="cart/checkout" element={<Checkout />} />
             {/* <Route path="contact" element={<ContactUs />} /> */}
-            <Route path="about" element={<About />} />
+            {/* <Route path="about" element={<About />} /> */}
             <Route path="*" element={<ErrorPage404 />} /> 
             <Route path="profile" element={<Profile />} />
  <Route path="/product/:id" element={<ProductDetails />} />                        <Route path="wishlist" element={<Wishlist />} />
