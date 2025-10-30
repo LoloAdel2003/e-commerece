@@ -1,8 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProductContext from '../Context/ProductContext';
 import { AiOutlineHeart, AiFillHeart, AiOutlineEye } from "react-icons/ai";
 import { HiArchiveBoxXMark } from "react-icons/hi2";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ScrollReveal from 'scrollreveal';
 
 // ========================
 // RatingStars
@@ -15,7 +18,7 @@ const RatingStars = ({ rating = 0 }) => {
       {[...Array(totalStars)].map((_, i) => (
         <svg
           key={i}
-          className={`w-4 h-4 ${i < filledStars ? 'text-orange-400' : 'text-gray-300'}`}
+          className={`w-4 h-4 ${i < filledStars ? 'text-yellow-400' : 'text-gray-300'}`}
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -31,23 +34,69 @@ const RatingStars = ({ rating = 0 }) => {
 const Cards = ({ product, isWish = false, inWish = false }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imgError, setImgError] = useState(false);
-  const [popupMessage, setPopupMessage] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
+  const cardRef = useRef(null);
 
   const navigate = useNavigate();
   const { addToCart, addToWishlist, removeFromWishlist, setSelected, wishlist } = useContext(ProductContext);
-  const { img, price, title, NewPrice, OldPrice, num, rating, id } = product || {};
+  const { img, title, NewPrice, OldPrice, num, rating, id } = product || {};
 
   const isInWishlist = wishlist?.some(item => item.id === id);
 
-  // دالة لإظهار الـ popup
-  const triggerPopup = (message) => {
-    setPopupMessage(message);
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 1500);
+  // ⚡ Scroll Reveal animation
+  useEffect(() => {
+    if (cardRef.current) {
+      ScrollReveal().reveal(cardRef.current, {
+        distance: '60px',
+        duration: 1000,
+        delay: 200,
+        origin: 'top',
+        easing: 'ease-out',
+        opacity: 0,
+        reset: true,
+        cleanup: true,
+      });
+    }
+  }, []);
+
+  // ✅ Toast function
+  const notify = (message, type = "success") => {
+    if (type === "success") {
+      toast.success(message, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        icon: "✅",
+        style: {
+          borderRadius: '10px',
+          background: '#4BB543',
+          color: '#fff',
+          fontWeight: '500',
+          fontSize: '14px',
+        },
+      });
+    } else {
+      toast.error(message, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        icon: "💔",
+        style: {
+          borderRadius: '10px',
+          background: '#DB4444',
+          color: '#fff',
+          fontWeight: '500',
+          fontSize: '14px',
+        },
+      });
+    }
   };
 
-  // دالة للذهاب لصفحة تفاصيل المنتج
   const goToProduct = (product) => {
     setSelected(product);
     navigate(`/product/${product.id}`);
@@ -55,10 +104,12 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
 
   return (
     <div
-      className="w-[270px] h-[350px] font-poppins relative"
+      ref={cardRef}
+      className="w-[270px] h-[350px] font-poppins relative transition-all duration-700"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      {/* صورة المنتج */}
       <div className="relative w-full h-[250px] rounded-[4px] bg-[#F5F5F5] flex justify-center items-center">
         <img
           src={!imgError ? img : '/imges/fallback.png'}
@@ -67,9 +118,10 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
           onError={() => setImgError(true)}
         />
 
-        {price && (
+        {/* السعر */}
+        {NewPrice && (
           <div className="absolute text-[12px] top-[12px] left-[12px] bg-[#DB4444] text-white rounded-[4px] w-[55px] h-[26px] flex justify-center items-center">
-            {price}
+            {NewPrice}
           </div>
         )}
 
@@ -78,7 +130,7 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
           <div
             onClick={() => {
               removeFromWishlist(id);
-              triggerPopup("Removed from Wishlist 💔");
+              notify("Removed from Wishlist 💔", "error");
             }}
             className="absolute top-[12px] right-[12px] w-[34px] h-[34px] rounded-full bg-white flex justify-center items-center cursor-pointer shadow-sm hover:bg-gray-100 transition-colors"
           >
@@ -91,10 +143,10 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
                 onClick={() => {
                   if (isInWishlist) {
                     removeFromWishlist(id);
-                    triggerPopup("Removed from Wishlist 💔");
+                    notify("Removed from Wishlist 💔", "error");
                   } else {
                     addToWishlist(product);
-                    triggerPopup("Added to Wishlist 💖");
+                    notify("Added to Wishlist 💖", "success");
                   }
                 }}
                 className="w-[34px] h-[34px] rounded-full bg-white flex justify-center items-center cursor-pointer shadow-sm hover:bg-gray-100 transition-all"
@@ -122,7 +174,7 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
           <div
             onClick={() => {
               addToCart(product);
-              triggerPopup("Added to Cart ✅");
+              notify("Added to Cart ✅", "success");
             }}
             className="absolute bottom-0 w-full h-[48px] bg-black text-white flex justify-center items-center cursor-pointer text-base rounded-b-[4px] z-10"
           >
@@ -131,7 +183,7 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
         )}
       </div>
 
-      {/* Product details */}
+      {/* تفاصيل المنتج */}
       <div className="pt-[16px]">
         <span className="text-base font-medium font-poppins leading-normal">{title}</span>
         <div className="py-[8px] flex items-center">
@@ -147,13 +199,6 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
           </div>
         )}
       </div>
-
-      {/* 🔔 Popup */}
-      {showPopup && (
-        <div className="absolute bottom-[200px] left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded-md text-sm shadow-md z-20 animate-fadeIn">
-          {popupMessage}
-        </div>
-      )}
     </div>
   );
 };

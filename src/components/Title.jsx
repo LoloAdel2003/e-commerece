@@ -1,9 +1,27 @@
-import React from 'react'
+import React,{useEffect,useRef} from 'react'
 import Button from './Button'
+import ScrollReveal from 'scrollreveal';
+
 const Title = ({type,title,slides,button}) => {
+const TitleRef = useRef(null);
+
+  useEffect(() => {
+    if (TitleRef.current) {
+      ScrollReveal().reveal(TitleRef.current, {
+        distance: '80px',
+        origin: 'left',
+        duration: 800,
+        delay: 300,
+        easing: 'ease-out',
+        reset: true, // لو بدك تعيد الحركة كل مرة ترجع تسكرول فعلها بـ true
+        opacity: 0,
+      });
+    }
+  }, []);
+
   return (
     <div className="flex items-center justify-between">
-    <div>
+    <div ref={TitleRef}>
       <div className="flex items-center gap-[10px] text-[#DB4444]">
         <span className="w-[20px] h-[40px] rounded-[4px] bg-[#DB4444]"></span>
         <span className="font-semibold font-600 text-sm ">{type}</span>

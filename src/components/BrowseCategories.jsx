@@ -51,7 +51,7 @@ const categoriesData = [
 
 const BrowseCategories = () => {
   return (
-    <div className="container mx-auto px-4 md:px-8 lg:px-16 pt-[70px] ">
+    <div className="container mx-auto px-4 md:px-8 lg:px-[100px] pt-[70px] ">
       
       {/* العنوان */}
       <Title type="Categories" title="Browse By Category" slides="true" className="flex-shrink-0" />

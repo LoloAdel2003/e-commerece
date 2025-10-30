@@ -15,7 +15,7 @@ const Header = ({ isExist = true, isSign = true }) => {
 
   return (
     <header className="bg-white shadow">
-      <div className="w-full px-6 lg:px-[135px] flex items-center justify-between py-4">
+      <div className="w-full px-6 lg:px-[100px] flex items-center justify-between py-4">
         {/* الاسم */}
         <span className="font-bold text-[24px] text-black">Exclusive</span>
 

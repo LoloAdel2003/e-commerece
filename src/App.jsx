@@ -15,10 +15,21 @@ import Profile from './Pages/Profile.jsx'
 import ErrorPage404 from './Pages/ErrorPage404.jsx'
 import ProductDetails from './Pages/ProductDetails.jsx'
 import Checkout from './Pages/Checkout.jsx';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Layout = () => {
   return (
     <>
+    <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnHover={false}
+        draggable={false}
+        limit={1}
+      />
       <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
         <Head />
         <Header />
@@ -52,7 +63,9 @@ const LayoutLogin = () => {
 const App = () => {
   return (
     <ProductProvider>
+      
       <BrowserRouter>
+
         <Routes>
           <Route path="/" element={<Layout />}>
           

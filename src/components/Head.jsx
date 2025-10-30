@@ -17,7 +17,7 @@ const Head = () => {
       </div>
 
       {/* English مع السهم */}
-      <div className="absolute right-4 lg:right-[135px] flex items-center gap-2 text-white text-[14px] font-normal">
+      <div className="absolute right-4 lg:right-[100px] flex items-center gap-2 text-white text-[14px] font-normal">
         English <AiOutlineDown />
       </div>
     </div>

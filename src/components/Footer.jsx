@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     // الخلفية: سوداء (Black)
     <footer className="bg-black text-white font-poppins pt-20">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-[100px]">
         
        
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-10 lg:gap-x-8 pb-16">

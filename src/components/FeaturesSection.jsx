@@ -110,7 +110,7 @@ const FeatureCard = ({ icon, title, description }) => {
 
 const FeaturesSection = () => {
   return (
-    <section className="container mx-auto px-4 lg:px-[135px]  pb-[50px] font-poppins">
+    <section className="container mx-auto px-4 lg:px-[100px]  pb-[50px] font-poppins">
       
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">

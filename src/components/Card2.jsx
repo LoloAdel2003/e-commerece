@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import ScrollReveal from 'scrollreveal';
 
 const CategoryCard = ({ name, children, isActive = false }) => {
-  const baseStyle = "w-[170px] h-[145px] rounded-[4px] border border-gray-300 flex flex-col justify-center items-center gap-3 transition-all duration-300 cursor-pointer font-poppins";
-  
-  const activeStyle = isActive 
-    ? "bg-[#DB4444] text-white border-[#DB4444]" 
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    if (cardRef.current) {
+      ScrollReveal().reveal(cardRef.current, {
+        distance: '80px',
+        origin: 'top',
+        duration: 800,
+        delay: 300,
+        easing: 'ease-out',
+        reset: true, // لو بدك تعيد الحركة كل مرة ترجع تسكرول فعلها بـ true
+        opacity: 0,
+      });
+    }
+  }, []);
+
+  const baseStyle =
+    "w-[170px] h-[145px] rounded-[4px] border border-gray-300 flex flex-col justify-center items-center gap-3 transition-all duration-300 cursor-pointer font-poppins";
+  const activeStyle = isActive
+    ? "bg-[#DB4444] text-white border-[#DB4444]"
     : "hover:bg-[#DB4444] hover:text-white hover:border-[#DB4444]";
-    
-  
   const iconColor = isActive ? "text-white" : "text-black group-hover:text-white";
 
   return (
-    <div className={`${baseStyle} ${activeStyle} group`}>
+    <div ref={cardRef} className={`${baseStyle} ${activeStyle} group`}>
       <div className={`text-4xl ${iconColor} transition-colors duration-300`}>
-        {children} 
+        {children}
       </div>
       <span className="text-base font-normal">{name}</span>
     </div>

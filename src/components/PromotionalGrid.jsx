@@ -66,7 +66,7 @@ const PromotionalGrid = () => {
   ];
 
   return (
-    <section className="container mx-auto px-4 lg:px-[135px] pt-[50px] lg:pt-[100px] pb-[140px] font-poppins">
+    <section className="container mx-auto px-4 lg:px-[100px] pt-[50px] lg:pt-[100px] pb-[140px] font-poppins">
       <Title type="Featured" title="New Arrival" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 pt-[60px]  gap-4 md:gap-6">

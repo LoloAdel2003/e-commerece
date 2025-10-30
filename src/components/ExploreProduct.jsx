@@ -10,7 +10,7 @@ const ExploreProduct = () => {
   const firstEightProducts = products.slice(0, 8);
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-[135px] pt-[40px] lg:pt-[70px] font-poppins overflow-hidden">
+    <section className="w-full px-4 sm:px-6 lg:px-[100px] pt-[40px] lg:pt-[70px] font-poppins overflow-hidden">
       
       <Title 
         type="Our Product" 

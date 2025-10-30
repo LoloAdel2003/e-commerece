@@ -10,7 +10,7 @@ const bestSellingProducts = products.filter(product => product.type?.toLowerCase
 
   return (
     <>
-      <section className="w-full px-4 lg:px-[135px] pt-[50px] lg:pt-[70px] font-poppins overflow-auto scrollbar-hide">
+      <section className="w-full px-4 lg:px-[100px] pt-[50px] lg:pt-[70px] font-poppins overflow-auto scrollbar-hide">
         <Title type="This Month" title="Best Selling Products" button="true" className="flex-shrink-0" />
 
         <div className="flex gap-7 pb-4 mt-[60px] overflow-auto scrollbar-hide">
