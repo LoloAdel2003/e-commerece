@@ -2,15 +2,14 @@ import React, { useContext, useState } from "react";
 import { FaStar, FaPlus, FaMinus, FaHeart, FaTruck, FaRedo } from "react-icons/fa";
 import ProductContext from "../Context/ProductContext";
 import PageSeq from '../components/PageSeq';
-import Title from '../components/Title'
-import Cards from '../components/Cards'
-const ProductDetails = () => {
+import Title from '../components/Title';
+import Cards from '../components/Cards';
 
-  const { selected, addToCart,products, addToWishlist } = useContext(ProductContext);
+const ProductDetails = () => {
+  const { selected, addToCart, products, addToWishlist } = useContext(ProductContext);
   const [quantity, setQuantity] = useState(1);
-  const [selectedColour, setSelectedColour] = useState(selected?.availableColors?.[0] || "");
   const [activeImage, setActiveImage] = useState(0);
-    const someProduct = products ? products.slice(0, 4) : [];
+  const someProduct = products ? products.slice(0, 4) : [];
 
   if (!selected) {
     return (
@@ -24,15 +23,18 @@ const ProductDetails = () => {
     setQuantity((prev) => Math.max(1, prev + change));
   };
 
+  const images = Array(4).fill(selected.image); // كل الصور نفس الصورة
+
   return (
-     <div className="w-full px-3 sm:px-4 lg:px-[135px] pt-[40px] lg:pt-[80px] font-poppins ">
-      {/* (Breadcrumb) */}
+    <div className="w-full px-3 sm:px-4 lg:px-[135px] pt-[40px] lg:pt-[80px] font-poppins">
+      {/* Breadcrumb */}
       <PageSeq />
+
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="flex flex-col sm:flex-row lg:flex-row gap-4 lg:w-2/3">
           {/* Thumbnails */}
           <div className="flex flex-row sm:flex-col gap-3 overflow-x-auto sm:overflow-x-hidden p-2">
-            {selected.images.map((img, index) => (
+            {images.map((img, index) => (
               <div
                 key={index}
                 onClick={() => setActiveImage(index)}
@@ -50,9 +52,9 @@ const ProductDetails = () => {
           </div>
 
           {/* Main Image */}
-          <div className="flex-grow bg-gray-100 flex items-center justify-center p-8 rounded-lg  h-[300px] lg:min-h-[400px]">
+          <div className="flex-grow bg-gray-100 flex items-center justify-center p-8 rounded-lg h-[300px] lg:min-h-[400px]">
             <img
-              src={selected.images[activeImage]}
+              src={images[activeImage]}
               alt={selected.title}
               className="w-full lg:max-w-md h-[300px] object-cover rounded-lg"
             />
@@ -68,46 +70,19 @@ const ProductDetails = () => {
             <div className="flex items-center space-x-2">
               <div className="flex text-yellow-500">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <FaStar key={i} className={i <= selected.rateNumber ? "" : "text-gray-300"} />
+                  <FaStar key={i} className={i <= Math.round(selected.rating?.rate || 0) ? "" : "text-gray-300"} />
                 ))}
               </div>
-              <span className="text-sm text-gray-500">({selected.reviewNumber} Reviews)</span>
-              <span className="text-sm font-medium text-green-600">| In Stock: {selected.inStock}</span>
+              <span className="text-sm text-gray-500">({selected.rating?.count || 0} Reviews)</span>
             </div>
 
             <div className="flex items-center gap-4 pt-2">
-              <p className="text-4xl font-bold text-gray-900">{selected.NewPrice}</p>
-              {selected.OldPrice && (
-                <p className="text-gray-400 line-through text-lg">{selected.OldPrice}</p>
-              )}
-              {selected.price && (
-                <span className="text-red-500 font-semibold">{selected.price}</span>
-              )}
+              <p className="text-4xl font-bold text-gray-900">${selected.price}</p>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-gray-600 border-b pb-4">{selected.shortDescription}</p>
-
-          {/* Colours Selector */}
-          <div className="space-y-2">
-            <p className="font-medium text-gray-700">Colours:</p>
-            <div className="flex space-x-3">
-              {selected.availableColors.map((colour) => (
-                <button
-                  key={colour}
-                  onClick={() => setSelectedColour(colour)}
-                  className={`px-3 py-1 border rounded-md text-sm font-medium transition-colors ${
-                    selectedColour === colour
-                      ? "bg-red-600 text-white border-red-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:border-gray-400"
-                  }`}
-                >
-                  {colour}
-                </button>
-              ))}
-            </div>
-          </div>
+          <p className="text-gray-600 border-b pb-4">{selected.description}</p>
 
           {/* Quantity & Buy Now */}
           <div className="flex items-center space-x-3 pt-4">
@@ -178,19 +153,17 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-<div className="my-[80px] md:my-[140px]">
-   <Title type="Related Items" />
-  
-  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-[40px] lg:py-[60px] lg:pb-[140px]">
+
+      {/* Related Items */}
+      <div className="my-[80px] md:my-[140px]">
+        <Title type="Related Items" />
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-[40px] lg:py-[60px] lg:pb-[140px]">
           {someProduct.map((card, index) => (
             <Cards inWish={true} key={index} product={card} />
           ))}
         </div>
-       
-
-        </div>
-  </div>
-    
+      </div>
+    </div>
   );
 };
 
