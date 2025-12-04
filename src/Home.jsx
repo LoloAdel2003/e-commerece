@@ -1,17 +1,14 @@
 
 
 import React from 'react';
-import Head from './components/Head.jsx'
-import Header from './components/Header.jsx';
-import Hero from './components/Hero.jsx'
-import Footer from './components/Footer.jsx'
-import Flash from './components/Flash.jsx';
-import BrowseCategories from './components/BrowseCategories.jsx';
-import BestSelling from './components/BestSelling.jsx';
-import ExploreProduct from './components/ExploreProduct.jsx'
-import Music from './components/Music.jsx';
-import PromotionalGrid from './components/PromotionalGrid.jsx'
-import FeaturesSection from './components/FeaturesSection.jsx'
+import FeaturesSection from './components/HomePage/FeaturesSection.jsx';
+import Hero from './components/HomePage/Hero.jsx';
+import Flash from './components/HomePage/Flash.jsx';
+import BrowseCategories from './components/HomePage/BrowseCategories.jsx';
+import BestSelling from './components/HomePage/BestSelling.jsx';
+import ExploreProduct from './components/HomePage/ExploreProduct.jsx';
+import Music from './components/HomePage/Music.jsx';
+import PromotionalGrid from './components/HomePage/PromotionalGrid.jsx';
 const Home = () => {
   return (
    <>

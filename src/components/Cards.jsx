@@ -38,7 +38,9 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
 
   const navigate = useNavigate();
   const { addToCart, addToWishlist, removeFromWishlist, setSelected, wishlist } = useContext(ProductContext);
-  const { img, title, NewPrice, OldPrice, num, rating, id } = product || {};
+  const { image, title, price, rating, id } = product || {};
+  const num = rating?.count || 0;
+  const rate = rating?.rate || 0;
 
   const isInWishlist = wishlist?.some(item => item.id === id);
 
@@ -112,16 +114,16 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
       {/* صورة المنتج */}
       <div className="relative w-full h-[250px] rounded-[4px] bg-[#F5F5F5] flex justify-center items-center">
         <img
-          src={!imgError ? img : '/imges/fallback.png'}
+          src={!imgError ? image : '/imges/fallback.png'}
           alt={title}
           className="max-w-[80%] max-h-[80%] object-contain"
           onError={() => setImgError(true)}
         />
 
         {/* السعر */}
-        {NewPrice && (
+        {price && (
           <div className="absolute text-[12px] top-[12px] left-[12px] bg-[#DB4444] text-white rounded-[4px] w-[55px] h-[26px] flex justify-center items-center">
-            {NewPrice}
+            ${price}
           </div>
         )}
 
@@ -185,16 +187,15 @@ const Cards = ({ product, isWish = false, inWish = false }) => {
 
       {/* تفاصيل المنتج */}
       <div className="pt-[16px]">
-        <span className="text-base font-medium font-poppins leading-normal">{title}</span>
+<span className="text-sm font-medium font-poppins leading-tight truncate block w-full">
+  {title}
+</span>
         <div className="py-[8px] flex items-center">
-          <span className="text-[16px] font-medium font-poppins text-[#DB4444] pr-[12px]">{NewPrice}</span>
-          {OldPrice && (
-            <span className="text-[16px] font-medium font-poppins text-black opacity-50 line-through">{OldPrice}</span>
-          )}
+          <span className="text-[16px] font-medium font-poppins text-[#DB4444] pr-[12px]">${price}</span>
         </div>
         {!isWish && (
           <div className="flex items-center">
-            <RatingStars rating={rating} />
+            <RatingStars rating={rate} />
             <span className="text-sm text-gray-500 ml-2">({num})</span>
           </div>
         )}

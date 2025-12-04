@@ -91,14 +91,13 @@ const BannerContent = () => (
       {/* النص الترويجي */}
       <div className="text-white hero-text">
         <div className="flex items-center mb-4">
-         <svg
-  className="w-8 h-8 mr-3 fill-current"
-  viewBox="0 0 16 16"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path d="M1 8h14M8 1l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
-
+          <svg
+            className="w-8 h-8 mr-3 fill-current"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M14.77 8.35c.16-.16.35-.3.51-.43..." />
+          </svg>
           <span className="text-sm md:text-base font-poppins">
             iPhone 14 Series
           </span>

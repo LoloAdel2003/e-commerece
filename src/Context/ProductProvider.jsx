@@ -7,16 +7,24 @@ const ProductProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [selected, setSelected] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
 
   // Fetch products once
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch('/product.json');
+ useEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('https://fakestoreapi.com/products');
       const data = await response.json();
       setProducts(data);
-    };
-    fetchProducts();
-  }, []);
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  fetchProducts();
+}, []);
 
   
 
@@ -77,6 +85,7 @@ const ProductProvider = ({ children }) => {
   return (
     <ProductContext.Provider
       value={{
+        isLoading,
         products,
         setProducts,
         cart,

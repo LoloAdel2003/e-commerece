@@ -1,7 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
-import Title from './Title';
-import Cards from './Cards';
-import ProductContext from '../Context/ProductContext';
+import ProductContext from '../../Context/ProductContext';
+import SkeletonCard from '../SkeletonCard';
+import Cards from '../Cards';
+import SkeletonButton from '../SkeletonButton';
+import Title from '../Title';
+import { useNavigate } from 'react-router-dom';
+
 
 const FlashSalesHeader = () => {
   // تحديد الوقت النهائي مرة واحدة فقط عند التحميل
@@ -62,10 +66,13 @@ const FlashSalesHeader = () => {
 
 // مكون الفلاش الكامل
 const Flash = () => {
-  const { products } = useContext(ProductContext);
-
-  const flashProducts = products.filter(product => product.type === 'flash-sales');
-
+   const navigate = useNavigate();
+  const { products, isLoading } = useContext(ProductContext);
+const handleClick=()=>{
+  navigate('/FlashProduct');
+}
+  // const flashProducts = products.filter(product => product.type === 'flash-sales');
+const flashProducts=products.slice(0,8); 
   return (
     <section className="w-full px-3 sm:px-4 lg:px-[100px] pt-[40px] lg:pt-[140px] font-poppins overflow-auto scrollbar-hide">
       <div className="mb-8 md:mb-10">
@@ -73,17 +80,28 @@ const Flash = () => {
       </div>
 
       <div className="flex gap-4 sm:gap-6 lg:gap-7 pb-4 overflow-auto scrollbar-hide">
-        {flashProducts.map((card, index) => (
-          <div key={index} className="flex-shrink-0">
-            <Cards product={card} />
-          </div>
-        ))}
+        {isLoading
+          ? Array(8)
+              .fill(0)
+              .map((_, index) => (
+                <div key={index} className="flex-shrink-0">
+                  <SkeletonCard />
+                </div>
+              ))
+          : flashProducts.map((card, index) => (
+              <div key={index} className="flex-shrink-0">
+                <Cards product={card} />
+              </div>
+            ))}
       </div>
 
       <div className="flex justify-center mt-10 mb-14">
-        <button className="bg-[#DB4444] text-white font-medium py-3 sm:py-4 px-10 sm:px-12 rounded-[4px] hover:bg-red-600 transition-colors text-sm sm:text-base">
+        {isLoading ? (
+          <SkeletonButton />
+        ) :
+        <button onClick={handleClick} className="bg-[#DB4444] text-white font-medium py-3 cursor-pointer sm:py-4 px-10 sm:px-12 rounded-[4px] hover:bg-red-600 transition-colors text-sm sm:text-base">
           View All Products
-        </button>
+        </button>}
       </div>
 
       <div className="w-full h-[1px] bg-gray-200"></div>

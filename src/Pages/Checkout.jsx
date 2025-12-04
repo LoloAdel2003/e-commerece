@@ -1,25 +1,25 @@
 import React, { useContext, useState } from 'react';
 import { FaCcVisa, FaCcMastercard, FaCcAmex } from 'react-icons/fa';
-import ProductItem from '../components/ProductItem';
 import ProductContext from '../Context/ProductContext';
 import PageSeq from '../components/PageSeq';
+import ProductItem from '../components/ProductItem';
 
 const Checkout = () => {
   const { cart } = useContext(ProductContext);
   const [paymentMethod, setPaymentMethod] = useState('cod');
 
-  // حساب المجموع بعد تحويل الأسعار من نص لرقم
+  // حساب المجموع
   const subtotal =
     cart?.reduce(
       (sum, item) =>
-        sum + parseFloat(item.NewPrice.replace('$', '')) * item.num,
+        sum + (Number(item.NewPrice?.replace('$', '')) || 0) * (item.num || 1),
       0
     ) || 0;
 
   const shippingFee = 0;
   const total = subtotal + shippingFee;
 
-  // 🔸 Input Field
+  // ===== Input Field Component =====
   const InputField = ({ label, id, placeholder = '', required = false, type = 'text' }) => (
     <div className="mb-4">
       <label htmlFor={id} className="sr-only">{label}</label>
@@ -34,7 +34,7 @@ const Checkout = () => {
     </div>
   );
 
-  // 🔸 Payment Option
+  // ===== Payment Option Component =====
   const PaymentOption = ({ value, label, icons }) => (
     <label
       className={`flex items-center justify-between p-4 mb-4 border rounded-md cursor-pointer transition-all ${
@@ -52,9 +52,15 @@ const Checkout = () => {
         />
         <span className="ml-3 text-sm font-medium text-gray-700">{label}</span>
       </div>
-      <div className="flex space-x-1 text-gray-500 text-xl">{icons}</div>
+      {icons && <div className="flex space-x-1 text-gray-500 text-xl">{icons}</div>}
     </label>
   );
+
+  // ===== Handle Place Order =====
+  const handlePlaceOrder = (e) => {
+    e.preventDefault();
+    alert('Order placed successfully!');
+  };
 
   if (!cart || cart.length === 0) {
     return (
@@ -69,49 +75,44 @@ const Checkout = () => {
     <div className="w-full px-3 sm:px-6 lg:px-[135px] py-[40px] font-poppins">
       <PageSeq />
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
-        {/* Left Side */}
+      <form onSubmit={handlePlaceOrder} className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+        {/* ===== Left Side: Billing Details ===== */}
         <div className="lg:col-span-3 bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-semibold mb-6 text-gray-900">Billing Details</h2>
 
-          <form className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <InputField label="First Name" id="firstName" required />
-              <InputField label="Company Name" id="companyName" />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <InputField label="First Name" id="firstName" required />
+            <InputField label="Company Name" id="companyName" />
+          </div>
 
-            <InputField label="Street Address" id="streetAddress" required />
-            <InputField label="Apartment, floor, etc. (optional)" id="apartment" />
-            <InputField label="Town/City" id="townCity" required />
-            <InputField label="Phone Number" id="phoneNumber" type="tel" required />
-            <InputField label="Email Address" id="emailAddress" type="email" required />
+          <InputField label="Street Address" id="streetAddress" required />
+          <InputField label="Apartment, floor, etc. (optional)" id="apartment" />
+          <InputField label="Town/City" id="townCity" required />
+          <InputField label="Phone Number" id="phoneNumber" type="tel" required />
+          <InputField label="Email Address" id="emailAddress" type="email" required />
 
-            <div className="flex items-center mt-4">
-              <input
-                id="saveInfo"
-                name="saveInfo"
-                type="checkbox"
-                defaultChecked
-                className="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
-              />
-              <label htmlFor="saveInfo" className="ml-2 text-sm text-gray-900">
-                Save this information for faster check-out next time
-              </label>
-            </div>
-          </form>
+          <div className="flex items-center mt-4">
+            <input
+              id="saveInfo"
+              name="saveInfo"
+              type="checkbox"
+              defaultChecked
+              className="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500"
+            />
+            <label htmlFor="saveInfo" className="ml-2 text-sm text-gray-900">
+              Save this information for faster check-out next time
+            </label>
+          </div>
         </div>
 
-        {/* Right Side */}
-        <div className="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+        {/* ===== Right Side: Order Summary ===== */}
+        <div className="lg:col-span-2 bg-white rounded-lg shadow-md p-6 flex flex-col">
           {/* Product List */}
           <div className="space-y-4 mb-6">
             {cart.map((item) => (
               <ProductItem
                 key={item.id}
-                name={item.title}
-                price={item.NewPrice} // النص من JSON
-                imageSrc={item.img}
-                quantity={item.num} // رقم من JSON
+                item={item}
               />
             ))}
           </div>
@@ -134,7 +135,7 @@ const Checkout = () => {
             <span className="text-gray-900">${total.toLocaleString('en-US')}</span>
           </div>
 
-          {/* Payment */}
+          {/* Payment Methods */}
           <div className="mb-6">
             <PaymentOption
               value="bank"
@@ -150,7 +151,7 @@ const Checkout = () => {
             <PaymentOption value="cod" label="Cash on delivery" />
           </div>
 
-          {/* Coupon */}
+          {/* Coupon Code */}
           <div className="flex flex-col sm:flex-row gap-3 mb-8">
             <input
               type="text"
@@ -173,7 +174,7 @@ const Checkout = () => {
             Place Order
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

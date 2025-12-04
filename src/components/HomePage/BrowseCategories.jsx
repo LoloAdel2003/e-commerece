@@ -1,10 +1,9 @@
 import React from 'react';
-import CategoryCard from './Card2'; 
+import CategoryCard from '../Card2'; 
 // استيراد أيقونات React (تم اختيار أيقونات عامة من مجموعة Fa أو Io)
 import { IoPhonePortraitOutline, IoWatchOutline } from 'react-icons/io5';
 import { FaLaptop, FaCamera, FaHeadphonesAlt, FaGamepad, FaClock } from 'react-icons/fa';
-import Title from './Title';
-
+import Title from '../Title';
 // ----------------------------------------------------
 // مصفوفة بيانات الفئات
 // ----------------------------------------------------

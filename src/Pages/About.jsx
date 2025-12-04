@@ -1,6 +1,6 @@
 import React from 'react';
 import PageSeq from '../components/PageSeq';
-import FeaturesSection from '../components/FeaturesSection.jsx'
+import FeaturesSection from '../components/HomePage/FeaturesSection';
 // import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import TeamSection from "../components/TeamSection"
 const About = () => {

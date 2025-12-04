@@ -8,23 +8,25 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cart } = useContext(ProductContext);
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // حساب الإجمالي
   const subtotal = cart.reduce((acc, item) => {
-    const price = Number(item.NewPrice?.replace("$", "")) || 0;
+    const price = Number(item.NewPrice?.replace("$", "")) || Number(item.price) || 0;
     const quantity = item.quantity || 0;
     return acc + price * quantity;
   }, 0);
- const goToCheck =()=>{
-  navigate('/cart/checkout')
- }
+
+  const goToCheck = () => {
+    navigate('/cart/checkout');
+  }
+
   return (
     <div className="w-full px-3 sm:px-6 lg:px-[135px] py-[40px] font-poppins">
       <PageSeq />
 
       {cart.length === 0 ? (
-        // 🔹 في حالة السلة فارغة
+        // في حالة السلة فارغة
         <div className="w-full h-[300px] flex flex-col justify-center items-center text-gray-500 text-center">
           <span className="text-xl font-medium">Your cart is empty 🛒</span>
           <span className="mt-2 text-sm">Start adding products you love!</span>
@@ -32,20 +34,17 @@ const navigate = useNavigate();
       ) : (
         <>
           {/* ====== جدول المنتجات ====== */}
-{/* ====== عناوين الأعمدة ====== */}
-<div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md gap-4">
-  <div className="flex items-center gap-4 min-w-[240px]">
-    Product
-  </div>
-  <div className="w-[80px] text-center">Price</div>
-  <div className="w-[120px] text-center">Quantity</div>
-  <div className="w-[100px] text-center">Total Price</div>
-  <div className="w-[80px] text-center">Remove</div>
-</div>
+          <div className="hidden lg:flex items-center justify-between p-4 bg-white shadow-md rounded-md gap-4">
+            <div className="flex items-center gap-4 min-w-[240px]">Product</div>
+            <div className="w-[80px] text-center">Price</div>
+            <div className="w-[120px] text-center">Quantity</div>
+            <div className="w-[100px] text-center">Total Price</div>
+            <div className="w-[80px] text-center">Remove</div>
+          </div>
 
           <div className="w-full mt-6 space-y-4">
-            {cart.map((item, index) => (
-              <CartItem key={index} item={item} />
+            {cart.map((item) => (
+              <CartItem key={item.id} item={item} />
             ))}
           </div>
 
@@ -72,7 +71,7 @@ const navigate = useNavigate();
                 <span>Subtotal:</span>
                 <span>${subtotal.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between border-b border-b-gray-300  py-2">
+              <div className="flex justify-between border-b border-b-gray-300 py-2">
                 <span>Shipping:</span>
                 <span>Free</span>
               </div>
@@ -81,8 +80,7 @@ const navigate = useNavigate();
                 <span>${subtotal.toFixed(2)}</span>
               </div>
               <div className="mt-5 flex justify-center">
-
-                <Button event={goToCheck} name="Proceed to Checkout"  />
+                <Button event={goToCheck} name="Proceed to Checkout" />
               </div>
             </div>
           </div>

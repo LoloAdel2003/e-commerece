@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from './Title.jsx'; 
+import Title from '../Title.jsx'; 
 
 
 const BannerCard = ({ title, subtitle, imgSrc, customStyles = '', isSpecial = false }) => {

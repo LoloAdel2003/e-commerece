@@ -7,27 +7,26 @@ const CartItem = ({ item }) => {
 
   if (!item) return null;
 
-  const price = Number(item.NewPrice?.replace("$", "")) || 0;
+  const price = Number(item.price) || 0; // السعر من الـ API
 
   return (
-    <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md gap-4">
-      
-      
-      <div className="flex items-center gap-4  ">
+    <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md gap-4 flex-wrap">
+      {/* صورة واسم المنتج */}
+      <div className="flex items-center gap-4 flex-1 min-w-[150px]">
         <img
-          src={item.img}
+          src={item.image} // تعديل الاسم ليطابق الـ API
           alt={item.title}
           className="w-[70px] h-[70px] object-cover rounded-md"
         />
-        <span className="font-medium text-gray-800">{item.title}</span>
+        <span className="font-medium text-gray-800 truncate">{item.title}</span>
       </div>
 
-      
+      {/* السعر لكل وحدة */}
       <div className="w-[80px] text-center text-gray-800 font-semibold">
         ${price.toFixed(2)}
       </div>
 
-      
+      {/* التحكم بالكمية */}
       <div className="flex items-center border rounded-md px-2 py-1">
         <button
           onClick={() => decreaseQuantity(item.id)}
@@ -44,7 +43,7 @@ const CartItem = ({ item }) => {
         </button>
       </div>
 
-      
+      {/* السعر الإجمالي */}
       <div className="w-[100px] text-center font-medium text-gray-800">
         ${(price * item.quantity).toFixed(2)}
       </div>
